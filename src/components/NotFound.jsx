@@ -1,7 +1,6 @@
 import React from 'react';
-import Note from './Note.jsx';
 
-export default class App extends React.Component {
+export default class NotFound extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -9,6 +8,6 @@ export default class App extends React.Component {
         }
     }
     render() {
-        return <Note />;
+        return <div>No page here</div>;
     }
 }
