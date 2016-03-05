@@ -30,7 +30,12 @@ const common = {
                 include: srcPath()
             }
         ]
-    }
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: "jade!" + srcPath("index.jade")
+        })
+    ]
 }
 
 
@@ -66,9 +71,6 @@ if(TARGET === 'start' || !TARGET) {
             new webpack.HotModuleReplacementPlugin(),
             new NpmInstallPlugin({
                 save: true
-            }),
-            new HtmlWebpackPlugin({
-                template: "jade!" + srcPath("index.jade")
             })
         ]
     })

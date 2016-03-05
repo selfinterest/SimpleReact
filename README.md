@@ -11,3 +11,5 @@ http://gaearon.github.io/react-hot-loader/
 Instructions
 ------------
 Clone the repo. Then `npm install`, then `npm start`. No Gulpfile. Runs entirely through npm and webpack.
+
+To build, `npm run-script build`. That will populate the /dist directory.
