@@ -35,7 +35,21 @@ const common = {
 
 
 if(TARGET === 'start' || !TARGET) {
-    module.exports = merge(common, {
+    module.exports = merge.smart(common, {
+        entry: [
+            'webpack-dev-server/client?http://0.0.0.0:8080', // WebpackDevServer host and port
+            'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
+            srcPath()      //this, plus the resolve entry below, will load index.jsx as the app entry point
+        ],
+        module: {           //this works because webpack merge is careful to concatenate loaders instead of replacing them
+          loaders: [
+              {
+                  test: /\.jsx?$/,
+                  loaders: ['react-hot'],
+                  include: srcPath()
+              }
+          ]
+        },
         devtool: 'eval-source-map',
         devServer: {
             contentBase: distPath(),
